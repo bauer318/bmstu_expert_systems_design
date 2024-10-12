@@ -4,10 +4,10 @@ package ru.bmstu.kibamba;
 public class Edge {
     private Node begin;
     private Node end;
-    private String number;
+    private int number;
     private int label;
 
-    public Edge(Node begin, Node end, String number){
+    public Edge(Node begin, Node end, int number) {
         this.begin = begin;
         this.end = end;
         this.number = number;
@@ -30,11 +30,11 @@ public class Edge {
         this.end = end;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 

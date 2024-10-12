@@ -1,7 +1,5 @@
 package ru.bmstu.kibamba;
 
-import java.util.Objects;
-
 //Вершина
 public class Node {
     private int number;
@@ -44,5 +42,10 @@ public class Node {
         result = prime * result + (flag ^(flag>>> 0));
 
         return result;
+    }
+
+    @Override
+    public String toString(){
+        return String.valueOf(this.number);
     }
 }
