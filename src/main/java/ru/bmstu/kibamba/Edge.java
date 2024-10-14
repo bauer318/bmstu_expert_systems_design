@@ -45,4 +45,9 @@ public class Edge {
     public void setLabel(int label) {
         this.label = label;
     }
+
+    @Override
+    public String toString() {
+        return this.begin + "->" + this.end;
+    }
 }

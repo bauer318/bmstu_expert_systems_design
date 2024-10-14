@@ -13,11 +13,15 @@ public class Runner {
         Node fifthNode = new Node(5);
         Node sixthNode = new Node(6); //Целевая вершина
 
+        LinkedList<Node> inputData = new LinkedList<>(List.of(
+                zeroNode, thirdNode
+        ));
+
         LinkedList<Edge> edgeLinkedList = new LinkedList<>(List.of(
                 new Edge(secondNode, fourthNode, 109),
                 new Edge(secondNode, sixthNode, 108),
                 new Edge(fifthNode, fourthNode, 107),
-                new Edge(sixthNode,fifthNode, 106),
+                new Edge(fifthNode,sixthNode, 106),
                 new Edge(thirdNode, fifthNode, 105),
                 new Edge(thirdNode, fourthNode, 104),
                 new Edge(zeroNode, thirdNode, 103),
@@ -25,8 +29,7 @@ public class Runner {
                 new Edge(zeroNode, firstNode, 101)
         ));
 
-        BFSearcher bfSearcher = new BFSearcher(edgeLinkedList, zeroNode);
-        bfSearcher.setTargetNode(sixthNode);
-        bfSearcher.search();
+        GraphAndOrBFSSearcher bfsSearcher = new GraphAndOrBFSSearcher(edgeLinkedList, inputData, sixthNode);
+        bfsSearcher.search();
     }
 }
