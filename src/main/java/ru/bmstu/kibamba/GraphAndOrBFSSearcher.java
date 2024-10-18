@@ -99,9 +99,9 @@ public class GraphAndOrBFSSearcher {
             int activeRulesNumber = descendantsMethod();
             if (!this.fy) {
                 //Вывод список закрытых правил
-                System.out.println(closedRules);
+                System.out.println("Список закрытых правил\n"+closedRules);
                 //Вывод список закрытых вершин
-                System.out.println(closedNodes);
+                System.out.println("Список закрытых вершин\n"+closedNodes);
                 //Нахождение пути
                 ArrayList<LinkedList<Edge>> path = findPath();
                 //Вывод путь
