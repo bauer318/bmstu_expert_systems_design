@@ -2,42 +2,28 @@ package ru.bmstu.kibamba;
 
 //Ребро
 public class Edge {
-    private Node begin;
-    private Node end;
-    private int number;
+    //Массив входных вершин
+    private final Node[] inputNodes;
+    //Выходная вершина
+    private final Node outputNode;
+    //Номер
+    private final int number;
+    //Метка
     private int label;
 
-    public Edge(Node begin, Node end, int number) {
-        this.begin = begin;
-        this.end = end;
+    public Edge(Node outputNode, Node[] inputNodes, int number) {
+        this.inputNodes = inputNodes;
+        this.outputNode = outputNode;
         this.number = number;
         this.label = 0;
     }
 
-    public Node getBegin() {
-        return begin;
+    public Node[] getInputNodes() {
+        return inputNodes;
     }
-
-    public void setBegin(Node begin) {
-        this.begin = begin;
+    public Node getOutputNode() {
+        return outputNode;
     }
-
-    public Node getEnd() {
-        return end;
-    }
-
-    public void setEnd(Node end) {
-        this.end = end;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public int getLabel() {
         return label;
     }
@@ -48,6 +34,14 @@ public class Edge {
 
     @Override
     public String toString() {
-        return this.begin + "->" + this.end;
+        StringBuilder result = new StringBuilder("(".concat(this.outputNode.toString()));
+        result.append(",[");
+        for (Node node : this.inputNodes) {
+            result.append(node.toString()).append(",");
+        }
+        result = new StringBuilder(result.substring(0, result.length() - 1));
+        result.append("],").append(this.number).append(")");
+
+        return result.toString();
     }
 }
