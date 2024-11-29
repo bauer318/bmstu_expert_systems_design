@@ -34,13 +34,14 @@ public class Edge {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("(".concat(this.outputNode.toString()));
-        result.append(",[");
+        StringBuilder result = new StringBuilder("("
+                .concat(String.valueOf(this.number)).concat(" : ").concat(this.outputNode.toString()));
+        result.append(" <- [");
         for (Node node : this.inputNodes) {
             result.append(node.toString()).append(",");
         }
         result = new StringBuilder(result.substring(0, result.length() - 1));
-        result.append("],").append(this.number).append(")");
+        result.append("]").append(")");
 
         return result.toString();
     }

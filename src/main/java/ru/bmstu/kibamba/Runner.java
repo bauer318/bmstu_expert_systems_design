@@ -26,30 +26,37 @@ public class Runner {
         Node node_19 = new Node(19);
         Node node_20 = new Node(20);
         Node node_21 = new Node(21);
-        Node node_31 = new Node(31);
-        Node node_32 = new Node(32);
-        Node node_33 = new Node(33);
+        Node node_22 = new Node(22);
+        Node node_23 = new Node(23);
+        Node node_24 = new Node(24);
+
+
+
 
         LinkedList<Node> inputData = new LinkedList<>(List.of(
-                node_5, node_6, node_12, node_13,node_10
+                node_5, node_6,node_1,node_16, node_20, node_21, node_7, node_12
         ));
 
         LinkedList<Edge> edgeLinkedList = new LinkedList<>(List.of(
-                new Edge(node_33, arrayOf(List.of(node_21, node_15)), 108),
-                new Edge(node_14, arrayOf(List.of(node_7, node_2, node_4)), 102),
-                new Edge(node_3, arrayOf(List.of(node_8, node_31)), 104),
                 new Edge(node_3, arrayOf(List.of(node_1, node_2)), 101),
+                new Edge(node_7, arrayOf(List.of(node_2, node_3, node_4)), 102),
                 new Edge(node_4, arrayOf(List.of(node_5, node_6)), 103),
-                new Edge(node_9, arrayOf(List.of(node_4, node_10, node_11)), 106),
-                new Edge(node_11, arrayOf(List.of(node_12, node_13)), 107),
-                new Edge(node_9, arrayOf(List.of(node_18, node_32)), 111),
-                new Edge(node_14, arrayOf(List.of(node_9, node_21)), 110),
-                new Edge(node_21, arrayOf(List.of(node_19, node_20)), 112),
-                new Edge(node_15, arrayOf(List.of(node_16, node_17)), 108)
+                new Edge(node_3, arrayOf(List.of(node_8, node_23)), 104),
+                new Edge(node_13, arrayOf(List.of(node_7, node_9)), 105),
+                new Edge(node_9, arrayOf(List.of(node_4, node_16, node_10)), 106),
+                new Edge(node_10, arrayOf(List.of(node_11, node_12)), 107),
+                new Edge(node_24, arrayOf(List.of(node_19, node_14)), 108),
+                new Edge(node_13, arrayOf(List.of(node_9, node_19)), 109),
+                new Edge(node_9, arrayOf(List.of(node_10, node_15)), 110),
+                new Edge(node_19, arrayOf(List.of(node_15, node_17)), 111),
+                new Edge(node_15, arrayOf(List.of(node_11, node_18)), 112),
+                new Edge(node_11, arrayOf(List.of(node_20, node_21)), 113),
+                new Edge(node_19, arrayOf(List.of(node_17, node_22)), 114),
+                new Edge(node_17, arrayOf(List.of(node_12, node_18, node_22)), 115)
         ));
 
-        GraphAndOrBFSSearcher bfsSearcher = new GraphAndOrBFSSearcher(edgeLinkedList, inputData, node_14);
-        bfsSearcher.search();
+        GraphAndOrDFSSearcher dfsSearcher = new GraphAndOrDFSSearcher(edgeLinkedList,node_13,inputData);
+        dfsSearcher.search();
     }
 
     private static Node[] arrayOf(List<Node> nodes) {
