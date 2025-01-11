@@ -63,14 +63,13 @@ public class BFSearcher {
                 fy = false;
             } else {
                 if (edge.getBegin().equals(sampleNode)) {
+                    edge.setLabel(1);
+                    result++;
                     if (edge.getEnd().equals(this.targetNode)) {
                         fy = false;
-                        result = 1;
                         break;
                     } else {
                         this.openedNodes.add(edge.getEnd());
-                        edge.setLabel(1);
-                        result++;
                     }
                 }
             }
