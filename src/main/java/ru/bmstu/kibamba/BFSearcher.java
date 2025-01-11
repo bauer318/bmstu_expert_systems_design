@@ -33,18 +33,18 @@ public class BFSearcher {
     public void search() {
         while (fy && fn) {
             int descendant = descendantsMethod();
-            Node deletedNode = openedNodes.remove();
+            Node deletedNode = this.openedNodes.remove();
             if (descendant != 0) {
-                closedNodes.add(deletedNode);
+                this.closedNodes.add(deletedNode);
                 if (!fy) {
-                    closedNodes.add(this.targetNode);
-                    LinkedList<Edge> path = findPath();
+                    this.closedNodes.add(this.targetNode);
                     printNodeLists();
+                    LinkedList<Edge> path = findPath();
                     printPath(path);
                     break;
                 }
             } else {
-                if (openedNodes.isEmpty()) {
+                if (this.openedNodes.isEmpty()) {
                     fn = false;
                     System.out.println("Нет решения");
                     break;
@@ -92,7 +92,7 @@ public class BFSearcher {
     //Найдет путь к целевой вершины среди закрытых вершин
     private LinkedList<Edge> findPath() {
         List<LinkedList<Edge>> paths = new ArrayList<>();
-        Node sourceNode = closedNodes.pop();
+        Node sourceNode = this.closedNodes.pop();
         LinkedList<Edge> descendants = findDescendants(sourceNode);
         for (Edge edge : descendants) {
             LinkedList<Edge> currentPath = new LinkedList<>();
