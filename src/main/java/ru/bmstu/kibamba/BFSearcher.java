@@ -38,9 +38,8 @@ public class BFSearcher {
                 closedNodes.add(deletedNode);
                 if (!fy) {
                     closedNodes.add(this.targetNode);
-                    System.out.println("Список открытых вершин\n"+this.openedNodes);
-                    System.out.println("Список закрытых вершин\n"+this.closedNodes);
                     LinkedList<Edge> path = findPath();
+                    printNodeLists();
                     printPath(path);
                     break;
                 }
@@ -66,6 +65,7 @@ public class BFSearcher {
                 if (edge.getBegin().equals(sampleNode)) {
                     if (edge.getEnd().equals(this.targetNode)) {
                         fy = false;
+                        result = 1;
                         break;
                     } else {
                         this.openedNodes.add(edge.getEnd());
@@ -157,6 +157,11 @@ public class BFSearcher {
             pathSb.append(edge.getEnd()).append("->");
         }
         System.out.println(pathSb.substring(0, pathSb.lastIndexOf("-")));
+    }
+
+    private void printNodeLists(){
+        System.out.println("Список открытых вершин\n"+this.openedNodes);
+        System.out.println("Список закрытых вершин\n"+this.closedNodes);
     }
 
     public void setTargetNode(Node targetNode) {
